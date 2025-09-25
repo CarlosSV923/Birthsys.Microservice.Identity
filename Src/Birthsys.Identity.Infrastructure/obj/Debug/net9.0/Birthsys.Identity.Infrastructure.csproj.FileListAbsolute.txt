@@ -1,0 +1,17 @@
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\bin\Debug\net9.0\Birthsys.Identity.Infrastructure.deps.json
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\bin\Debug\net9.0\Birthsys.Identity.Infrastructure.dll
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\bin\Debug\net9.0\Birthsys.Identity.Infrastructure.pdb
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\bin\Debug\net9.0\Birthsys.Identity.Application.dll
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\bin\Debug\net9.0\Birthsys.Identity.Domain.dll
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\bin\Debug\net9.0\Birthsys.Identity.Application.pdb
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\bin\Debug\net9.0\Birthsys.Identity.Domain.pdb
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.Identity.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.Identity.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.Identity.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.Identity.Infrastructure.AssemblyInfo.cs
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.Identity.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.C794666E.Up2Date
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.Identity.Infrastructure.dll
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\refint\Birthsys.Identity.Infrastructure.dll
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\Birthsys.Identity.Infrastructure.pdb
+D:\Projects\Portafolio\birth-sys\Microservices\Birthsys.Microservice.Identity\Src\Birthsys.Identity.Infrastructure\obj\Debug\net9.0\ref\Birthsys.Identity.Infrastructure.dll
