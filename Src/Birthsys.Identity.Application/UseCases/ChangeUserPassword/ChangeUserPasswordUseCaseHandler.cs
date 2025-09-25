@@ -18,12 +18,8 @@ namespace Birthsys.Identity.Application.UseCases.ChangeUserPassword
     {
         public async Task<Result<ChangeUserPasswordUseCaseOutput>> Handle(ChangeUserPasswordUseCaseInput request, CancellationToken cancellationToken)
         {
-            if (!Guid.TryParse(request.Id, out var userId))
-            {
-                return Result.Failure<ChangeUserPasswordUseCaseOutput>(UserErrors.InvalidUserId);
-            }
 
-            var userResult = await mediator.Send(new UserFindByIdQuery(UserId.FromGuid(userId)), cancellationToken);
+            var userResult = await mediator.Send(new UserFindByIdQuery(UserId.FromString(request.Id)), cancellationToken);
             if (!userResult.IsSuccess)
             {
                 return Result.Failure<ChangeUserPasswordUseCaseOutput>(userResult.Error);
@@ -46,7 +42,7 @@ namespace Birthsys.Identity.Application.UseCases.ChangeUserPassword
             }
             await eventsPublisherProvider.PublishEventsAsync(user, [changePasswordSuccessEvent], cancellationToken);
 
-            return new ChangeUserPasswordUseCaseOutput(user.Id!.Value);
+            return new ChangeUserPasswordUseCaseOutput(user.Id!.Value.ToString());
         }
     }
 }

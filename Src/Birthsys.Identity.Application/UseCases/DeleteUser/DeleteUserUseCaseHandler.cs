@@ -16,12 +16,8 @@ namespace Birthsys.Identity.Application.UseCases.DeleteUser
     {
         public async Task<Result<DeleteUserUseCaseOutput>> Handle(DeleteUserUseCaseInput request, CancellationToken cancellationToken)
         {
-            if (!Guid.TryParse(request.Id, out var userId))
-            {
-                return Result.Failure<DeleteUserUseCaseOutput>(UserErrors.InvalidUserId);
-            }
 
-            var userResult = await mediator.Send(new UserFindByIdQuery(UserId.FromGuid(userId)), cancellationToken);
+            var userResult = await mediator.Send(new UserFindByIdQuery(UserId.FromString(request.Id)), cancellationToken);
             if (!userResult.IsSuccess)
             {
                 return Result.Failure<DeleteUserUseCaseOutput>(userResult.Error);
@@ -38,7 +34,7 @@ namespace Birthsys.Identity.Application.UseCases.DeleteUser
 
             await eventsPublisherProvider.PublishEventsAsync(user, [userDeletedEvent], cancellationToken);
 
-            return new DeleteUserUseCaseOutput(user.Id!.Value);
+            return new DeleteUserUseCaseOutput(user.Id!.Value.ToString());
         }
     }
 }

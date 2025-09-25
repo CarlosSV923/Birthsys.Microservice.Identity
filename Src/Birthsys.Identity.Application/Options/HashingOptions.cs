@@ -2,7 +2,7 @@ namespace Birthsys.Identity.Application.Options
 {
     public class HashingOptions
     {
-        public static string SectionName => "Hashing";
+        public const string SectionName = "Hashing";
         public int MemorySize { get; set; } = 65536; // 64 MB
         public int DegreeOfParallelism { get; set; } = 8; // Number of threads to use
         public int Iterations { get; set; } = 4; // Number of iterations
