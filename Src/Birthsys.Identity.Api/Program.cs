@@ -1,3 +1,4 @@
+using Birthsys.Identity.Api.Extentions;
 using Birthsys.Identity.Application;
 using Birthsys.Identity.Infrastructure;
 
@@ -9,6 +10,11 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
+builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
 
 
 var app = builder.Build();
@@ -26,6 +32,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCustomExceptionHandler();
 
 await app.RunAsync();
 
