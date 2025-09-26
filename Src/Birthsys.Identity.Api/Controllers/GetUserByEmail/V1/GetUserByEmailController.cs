@@ -1,6 +1,7 @@
 using Asp.Versioning;
 using Birthsys.Identity.Api.Utils;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Birthsys.Identity.Api.Controllers.GetUserByEmail.V1
@@ -12,6 +13,7 @@ namespace Birthsys.Identity.Api.Controllers.GetUserByEmail.V1
         IMediator mediator
     ) : ControllerBase
     {
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<GetUserByEmailResponse>> GetUserByEmail([FromQuery] GetUserByEmailRequest request)
         {

@@ -2,6 +2,7 @@ using Asp.Versioning;
 using Birthsys.Identity.Api.Utils;
 using Birthsys.Identity.Domain.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Birthsys.Identity.Api.Controllers.DeleteUser.V1
@@ -18,6 +19,7 @@ namespace Birthsys.Identity.Api.Controllers.DeleteUser.V1
         /// </summary>
         /// <param name="request">Delete user request</param>
         /// <param name="cancellationToken">Cancellation token</param>
+        [Authorize]
         [HttpDelete]
         [ProducesResponseType(typeof(DeleteUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status404NotFound)]

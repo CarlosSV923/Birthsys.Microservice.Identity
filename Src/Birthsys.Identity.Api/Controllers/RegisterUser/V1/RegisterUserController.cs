@@ -2,6 +2,7 @@ using Asp.Versioning;
 using Birthsys.Identity.Api.Utils;
 using Birthsys.Identity.Domain.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Birthsys.Identity.Api.Controllers.RegisterUser.V1
@@ -18,10 +19,11 @@ namespace Birthsys.Identity.Api.Controllers.RegisterUser.V1
         /// <param name="request">Register user request</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Register user response</returns>
+        [HttpPost]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(RegisterUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status500InternalServerError)]
-        [HttpPost]
         public async Task<IActionResult> RegisterUserAsync(
             [FromBody] RegisterUserRequest request,
             CancellationToken cancellationToken

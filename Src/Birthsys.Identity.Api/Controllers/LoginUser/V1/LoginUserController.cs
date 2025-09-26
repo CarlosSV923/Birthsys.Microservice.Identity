@@ -2,6 +2,7 @@ using Asp.Versioning;
 using Birthsys.Identity.Api.Utils;
 using Birthsys.Identity.Domain.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Birthsys.Identity.Api.Controllers.LoginUser.V1
@@ -16,7 +17,8 @@ namespace Birthsys.Identity.Api.Controllers.LoginUser.V1
         /// </summary>
         /// <param name="request">Login user request</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        [HttpPost("api/v{version:apiVersion}/users/login")]
+        [AllowAnonymous]
+        [HttpPost]
         [ProducesResponseType(typeof(LoginUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status404NotFound)]

@@ -2,6 +2,7 @@ using Asp.Versioning;
 using Birthsys.Identity.Api.Utils;
 using Birthsys.Identity.Domain.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Birthsys.Identity.Api.Controllers.UpdateUser.V1
@@ -12,6 +13,7 @@ namespace Birthsys.Identity.Api.Controllers.UpdateUser.V1
     public class UpdateUserController(IMediator mediator) : ControllerBase
     {
 
+        [Authorize]
         [HttpPut]
         [ProducesResponseType(typeof(UpdateUserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status500InternalServerError)]

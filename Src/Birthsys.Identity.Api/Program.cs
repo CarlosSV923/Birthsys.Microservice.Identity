@@ -1,20 +1,23 @@
+using Birthsys.Identity.Api.Extensions;
 using Birthsys.Identity.Api.Extentions;
 using Birthsys.Identity.Application;
 using Birthsys.Identity.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
 
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddControllers();
+
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddAuthentication();
-builder.Services.AddAuthorization();
+
+builder.Services.AddHealthCheckConfig();
+
+builder.Services.AddJwtConfiguration();
+
+builder.Services.AddSwaggerDocumentation();
 
 
 var app = builder.Build();
@@ -22,7 +25,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwaggerDocumentation();
 }
 
 app.UseHttpsRedirection();

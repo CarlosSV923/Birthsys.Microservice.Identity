@@ -2,6 +2,7 @@ using Asp.Versioning;
 using Birthsys.Identity.Api.Utils;
 using Birthsys.Identity.Domain.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Birthsys.Identity.Api.Controllers.ChangeUserPassword.V1
@@ -17,6 +18,7 @@ namespace Birthsys.Identity.Api.Controllers.ChangeUserPassword.V1
         /// </summary>
         /// <param name="request">Change user password request</param>
         /// <param name="cancellationToken">Cancellation token</param>
+        [Authorize]
         [HttpPost]
         [ProducesResponseType(typeof(ChangeUserPasswordResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]

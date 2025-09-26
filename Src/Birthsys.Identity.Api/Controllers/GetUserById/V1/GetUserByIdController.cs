@@ -3,6 +3,7 @@ using Birthsys.Identity.Domain.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Birthsys.Identity.Api.Controllers.GetUserById.V1
 {
@@ -18,7 +19,7 @@ namespace Birthsys.Identity.Api.Controllers.GetUserById.V1
         /// </summary>
         /// <param name="id">User id</param>
         /// <param name="cancellationToken">Cancellation token</param>
-    
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(typeof(GetUserByIdResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status404NotFound)]
