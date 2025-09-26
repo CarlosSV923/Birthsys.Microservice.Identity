@@ -56,7 +56,7 @@ namespace Birthsys.Identity.Application.UseCases.RegisterUser
 
             await eventsPublisherProvider.PublishEventsAsync(newUser, [userCreateEvent], cancellationToken);
 
-            return new RegisterUserUseCaseOutput(newUser.Id!.Value);
+            return new RegisterUserUseCaseOutput(newUser.Id!.Value.ToString());
         }
     }
 }

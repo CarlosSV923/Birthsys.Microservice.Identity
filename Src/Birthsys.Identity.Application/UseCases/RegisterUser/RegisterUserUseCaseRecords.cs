@@ -11,5 +11,5 @@ namespace Birthsys.Identity.Application.UseCases.RegisterUser
         string UserBirthDate
     ) : IUseCase<RegisterUserUseCaseOutput>;
 
-    public record RegisterUserUseCaseOutput(Guid UserId);
+    public record RegisterUserUseCaseOutput(string UserId);
 }

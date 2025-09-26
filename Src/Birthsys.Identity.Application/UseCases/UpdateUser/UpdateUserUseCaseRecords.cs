@@ -13,5 +13,5 @@ namespace Birthsys.Identity.Application.UseCases.UpdateUser
         string DateOfBirth
     )  : IUseCase<UpdateUserUseCaseOutput>;
 
-    public record UpdateUserUseCaseOutput(Guid UserId);
+    public record UpdateUserUseCaseOutput(string UserId);
 }

@@ -60,7 +60,7 @@ namespace Birthsys.Identity.Application.UseCases.UpdateUser
                 return Result.Failure<UpdateUserUseCaseOutput>(updateResult.Error);
             }
             await eventsPublisherProvider.PublishEventsAsync(user, [userEvent], cancellationToken);
-            return new UpdateUserUseCaseOutput(user.Id!.Value);
+            return new UpdateUserUseCaseOutput(user.Id!.Value.ToString());
         }
     }
 }

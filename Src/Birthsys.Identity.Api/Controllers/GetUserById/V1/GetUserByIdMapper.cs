@@ -1,6 +1,6 @@
 using Birthsys.Identity.Application.UseCases.GetUserById;
 
-namespace Birthsys.Identity.Api.Controllers.GetUserById
+namespace Birthsys.Identity.Api.Controllers.GetUserById.V1
 {
     public static class GetUserByIdMapper
     {
@@ -15,7 +15,7 @@ namespace Birthsys.Identity.Api.Controllers.GetUserById
             );
         }
 
-        public static GetUserByIdUseCaseInput ToInput(this GetUserByIdRequest request)
+        public static GetUserByIdUseCaseInput ToUseCaseInput(this GetUserByIdRequest request)
         {
             return new GetUserByIdUseCaseInput(request.Id);
         }
