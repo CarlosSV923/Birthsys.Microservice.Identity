@@ -36,6 +36,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseCustomExceptionHandler();
+app.MapCustomHealthCheck();
 
 await app.RunAsync();
 

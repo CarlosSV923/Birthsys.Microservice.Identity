@@ -1,4 +1,6 @@
 using Birthsys.Identity.Api.Middlewares;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Newtonsoft.Json;
 
 namespace Birthsys.Identity.Api.Extentions
 {
@@ -24,6 +26,36 @@ namespace Birthsys.Identity.Api.Extentions
 
             });
             return app;
+        }
+
+        public static IApplicationBuilder MapCustomHealthCheck(this WebApplication app)
+        {
+            app.MapHealthChecks(
+                "/health", new HealthCheckOptions
+                {
+                    ResponseWriter = async (context, report) =>
+                    {
+                        context.Response.ContentType = "application/json";
+
+                        var result = new
+                        {
+                            status = report.Status.ToString(),
+                            checks = report.Entries.Select(e => new
+                            {
+                                name = e.Key,
+                                status = e.Value.Status.ToString(),
+                                description = e.Value.Description
+                            }),
+                            totalDuration = report.TotalDuration.TotalMilliseconds
+                        };
+
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(result));
+                    }
+                }
+            );
+
+            return app;
+
         }
     }
 }
