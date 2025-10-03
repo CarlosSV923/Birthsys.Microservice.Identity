@@ -1,6 +1,7 @@
 using Birthsys.Identity.Application.Behaviors;
 using Birthsys.Identity.Application.Events;
 using Birthsys.Identity.Application.Options;
+using Birthsys.Identity.Application.Producers;
 using Birthsys.Identity.Application.Services.Jwt;
 using Birthsys.Identity.Application.Services.PasswordHasher;
 using FluentValidation;
@@ -28,6 +29,8 @@ namespace Birthsys.Identity.Application
 
             services.AddTransient<IJwtProvider, JwtProvider>();
             services.AddTransient<IPasswordHasherProvider, PasswordHasherProvider>();
+
+            services.AddTransient(typeof(IProducer<>), typeof(Producer<>));
 
             
             return services;

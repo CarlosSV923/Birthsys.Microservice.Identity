@@ -1,10 +1,12 @@
 using Birthsys.Identity.Domain.Abstractions;
 using Birthsys.Identity.Domain.Aggregates.UserEvents.Interfaces;
 using Birthsys.Identity.Domain.Aggregates.Users.Interfaces;
+using Birthsys.Identity.Infrastructure.Broker;
 using Birthsys.Identity.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace Birthsys.Identity.Infrastructure
 {
@@ -22,6 +24,8 @@ namespace Birthsys.Identity.Infrastructure
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserEventRepository, UserEventRepository>();
+
+            services.AddBroker(configuration);
             return services;
         }
     }
