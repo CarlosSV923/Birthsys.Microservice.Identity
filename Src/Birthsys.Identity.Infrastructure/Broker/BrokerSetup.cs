@@ -1,4 +1,7 @@
 using System.Net.Mime;
+using Birthsys.Identity.Application.Commands.UserEvents.UpdateRange;
+using Birthsys.Identity.Application.Consumers.UpdateUserEvent;
+using Birthsys.Identity.Application.Producers.Events;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SlimMessageBus.Host;
@@ -31,6 +34,37 @@ namespace Birthsys.Identity.Infrastructure.Broker
                         });
                     });
                 options.AddJsonSerializer();
+
+                options.Consume<UpdateUserEventMessage>(x => x
+                    .Queue("update_userevent_queue")
+                    .ExchangeBinding("userevent_exchange", "userevent_updated")
+                    .WithConsumer<UpdateUserEventConsumer>()
+                );
+
+                options.Produce<UpdateUserProducerEvent>(x => x
+                    .Exchange("user_exchange", exchangeType: ExchangeType.Direct)
+                    .RoutingKeyProvider((m, p) => "user_updated")
+                );
+
+                options.Produce<CreateUserProducerEvent>(x => x
+                    .Exchange("user_exchange", exchangeType: ExchangeType.Direct)
+                    .RoutingKeyProvider((m, p) => "user_created")
+                );
+
+                options.Produce<DeleteUserProducerEvent>(x => x
+                    .Exchange("user_exchange", exchangeType: ExchangeType.Direct)
+                    .RoutingKeyProvider((m, p) => "user_deleted")
+                );
+
+                options.Produce<ChangeUserPasswordProducerEvent>(x => x
+                    .Exchange("user_exchange", exchangeType: ExchangeType.Direct)
+                    .RoutingKeyProvider((m, p) => "user_password_changed")
+                );
+
+                options.Produce<LoginUserProducerEvent>(x => x
+                    .Exchange("user_exchange", exchangeType: ExchangeType.Direct)
+                    .RoutingKeyProvider((m, p) => "user_logged_in")
+                );
             });
         }
     }

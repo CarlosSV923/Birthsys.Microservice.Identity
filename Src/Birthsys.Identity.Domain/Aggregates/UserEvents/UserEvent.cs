@@ -46,14 +46,6 @@ namespace Birthsys.Identity.Domain.Aggregates.UserEvents
             return Create(userId, UserEventProcess.LoginUser, UserEventProcessResult.Failed, error);
         }
 
-        public static UserEvent CreateAuthenticateSuccessEvent(UserId userId)
-        {
-            return Create(userId, UserEventProcess.AuthenticateUser, UserEventProcessResult.Success, "User authenticated successfully.");
-        }
-        public static UserEvent CreateAuthenticateFailedEvent(UserId userId, Error error)
-        {
-            return Create(userId, UserEventProcess.AuthenticateUser, UserEventProcessResult.Failed, error);
-        }
         public static UserEvent CreateUserCreatedEvent(UserId userId)
         {
             return Create(userId, UserEventProcess.CreateUser, UserEventProcessResult.Success, "User created successfully.");
@@ -71,7 +63,7 @@ namespace Birthsys.Identity.Domain.Aggregates.UserEvents
         {
             return Create(userId, UserEventProcess.DeleteUser, UserEventProcessResult.Success, "User deleted successfully.");
         }
-  
+
         public UserEvent MarkAsProcessed(string? eventDetails = null)
         {
             Status = UserEventStatus.Processed;
@@ -95,7 +87,14 @@ namespace Birthsys.Identity.Domain.Aggregates.UserEvents
             EventDetails = eventDetails;
             return this;
         }
-
-
+        
+        public UserEvent UpdateStatus(UserEventStatus status, string? eventDetails = null)
+        {
+            Status = status;
+            UpdatedAt = DateTime.UtcNow;
+            EventDetails = eventDetails;
+            return this;
+        }
     }
+
 }

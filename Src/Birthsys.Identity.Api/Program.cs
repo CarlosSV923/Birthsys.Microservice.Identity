@@ -15,7 +15,7 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddHealthCheckConfig();
 
-builder.Services.AddJwtConfiguration();
+builder.Services.AddAuthConfiguration();
 
 builder.Services.AddSwaggerDocumentation();
 

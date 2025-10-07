@@ -1,4 +1,3 @@
-using Birthsys.Identity.Application.Events.AuthenticationUser;
 using Birthsys.Identity.Application.Events.ChangeUserPassword;
 using Birthsys.Identity.Application.Events.DeleteUser;
 using Birthsys.Identity.Application.Events.LoginUser;
@@ -22,7 +21,6 @@ namespace Birthsys.Identity.Application.Events
                 { UserEventProcess.UpdateUser.Code, (user, evt) => new UpdateUserEvent(user, evt) },
                 { UserEventProcess.DeleteUser.Code, (user, evt) => new DeleteUserEvent(user, evt) },
                 { UserEventProcess.ChangeUserPassword.Code, (user, evt) => new ChangeUserPasswordEvent(user, evt) },
-                { UserEventProcess.AuthenticateUser.Code, (user, evt) => new AuthenticationUserEvent(user, evt) },
             };
 
         public EventsBuilder WithUser(User user)

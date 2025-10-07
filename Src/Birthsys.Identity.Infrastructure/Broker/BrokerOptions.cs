@@ -17,4 +17,6 @@ namespace Birthsys.Identity.Infrastructure.Broker
         public string Password { get; set; } = string.Empty;
         public string VirtualHost { get; set; } = string.Empty;
     }
+
+    
 }

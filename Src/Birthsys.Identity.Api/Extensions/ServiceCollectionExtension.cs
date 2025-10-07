@@ -1,4 +1,6 @@
 using Birthsys.Identity.Api.ConfigOptions;
+using Birthsys.Identity.Application.Abstractions;
+using Birthsys.Identity.Infrastructure.Accessors;
 
 namespace Birthsys.Identity.Api.Extensions
 {
@@ -19,11 +21,13 @@ namespace Birthsys.Identity.Api.Extensions
             return services;
         }
 
-        public static IServiceCollection AddJwtConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddAuthConfiguration(this IServiceCollection services)
         {
             services.AddAuthentication();
             services.AddAuthorization();
             services.ConfigureOptions<JwtConfigOptions>();
+            services.AddHttpContextAccessor();
+            services.AddTransient<ITokenAccessor, TokenAccessor>();
             return services;
         }
     }

@@ -14,7 +14,6 @@ namespace Birthsys.Identity.Domain.Aggregates.UserEvents
         public static readonly UserEventProcess ChangeUserPassword = new("ChangeUserPassword");
         public static readonly UserEventProcess LoginUser = new("LoginUser");
         public static readonly UserEventProcess LogoutUser = new("LogoutUser");
-        public static readonly UserEventProcess AuthenticateUser = new("AuthenticateUser");
         public static readonly UserEventProcess Unknown = new("Unknown");
 
         public static readonly IReadOnlyCollection<UserEventProcess> AllEventProcesss =
@@ -24,7 +23,6 @@ namespace Birthsys.Identity.Domain.Aggregates.UserEvents
             DeleteUser,
             ChangeUserPassword,
             LoginUser,
-            AuthenticateUser,
             Unknown
         ];
 
